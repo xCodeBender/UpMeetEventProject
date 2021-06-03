@@ -1,0 +1,29 @@
+import { Component } from '@angular/core';
+import { Event } from '../Event';
+import { MyService } from '../event.service';
+
+@Component({
+    selector: 'app-ng-all',
+    templateUrl: './ng-all.component.html',
+    styleUrls: ['./ng-all.component.scss']
+})
+/** NgAll component*/
+export class NgAllComponent {
+  /** NgAll ctor */
+
+  event: Event[] = [];
+
+  constructor(private service: MyService) {
+
+  }
+
+  ngOnInIt() {
+    this.service.getAllEvents().subscribe(
+      (response: any) => {
+        this.event = response;
+        console.log(this.event);
+
+      }
+    )
+  }
+}
