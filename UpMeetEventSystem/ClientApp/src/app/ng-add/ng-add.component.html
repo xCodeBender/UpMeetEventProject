@@ -1,6 +1,10 @@
 <div style="border: 1px solid red">
-  <form>
-    <input name="eventName" 
+  <form #eventForm="ngForm" (ngSubmit) ="">
+    <input name="eventName" ngModel />
+    <input name="price" type="number" ngModel />
+    <input name="eventLocation" ngModel />
+    <input name="postTime" ngModel />
+    <button>Submit</button>
   </form>
 
   </div>

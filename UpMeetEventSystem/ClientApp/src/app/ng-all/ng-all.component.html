@@ -1,1 +1,5 @@
-<app-ng-favorite [event]="Event" *ngFor=" let Event of event"> </app-ng-favorite>
+<!--<app-ng-favorite [event]="e" *ngFor=" let e of event"> </app-ng-favorite>-->
+<app-ng-add (createdEvent)=""> </app-ng-add>
+<p *ngFor=" let e of event"> {{e.eventName}}</p>
+
+

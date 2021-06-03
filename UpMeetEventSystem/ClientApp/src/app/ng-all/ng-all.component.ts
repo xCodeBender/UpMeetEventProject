@@ -17,7 +17,7 @@ export class NgAllComponent {
 
   }
 
-  ngOnInIt() {
+  ngOnInit() {
     this.service.getAllEvents().subscribe(
       (response: any) => {
         this.event = response;
@@ -26,4 +26,6 @@ export class NgAllComponent {
       }
     )
   }
+
+
 }

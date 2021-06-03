@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
-/*import { NgAllComponent } from '../ng-all/ng-all.component';*/
+import { Event } from '../Event';
 
 @Component({
     selector: 'app-ng-add',
@@ -14,15 +14,17 @@ export class NgAddComponent {
 
     }
 
-  @Output() createdEvent = new EventEmitter<NgAll>();
+  @Output() createdEvent = new EventEmitter<Event>();
 
   addEvent(form: NgForm): void {
-    let newShow: NgAll = {
+    let newEvent: Event = {
       eventName: form.form.value.eventName,
       price: form.form.value.price,
+      eventLocation: form.form.value.eventLocation,
+      postTime: form.form.value.postTime,
       id: null
     }
 
-    this.createdShow.emit(newShow);
+    this.createdEvent.emit(newEvent);
   }
 }
