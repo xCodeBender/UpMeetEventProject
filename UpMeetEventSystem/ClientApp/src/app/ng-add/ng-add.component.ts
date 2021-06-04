@@ -24,7 +24,7 @@ export class NgAddComponent {
       postTime: form.form.value.postTime,
       id: null
     }
-
+    console.log(newEvent);
     this.createdEvent.emit(newEvent);
   }
 }

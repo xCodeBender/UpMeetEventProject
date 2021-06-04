@@ -36,6 +36,7 @@ namespace UpMeetEventSystem.Controllers
                 context.Add(newEvent);
                 context.SaveChanges();
                 return newEvent;
+
             }
         }
 

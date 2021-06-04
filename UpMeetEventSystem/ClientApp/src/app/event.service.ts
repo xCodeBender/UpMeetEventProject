@@ -20,7 +20,7 @@ export class MyService {
     const params = new HttpParams();
     //console.log(this.baseUrl + "api/show/AddEvent");
     return this.http.post(
-      this.baseUrl + "api/event/AddSEvent?name=" + "&price=" + newEvent.price + "&eventLocation" + newEvent.eventLocation + "&postTime" + newEvent.postTime,
+      this.baseUrl + "api/event/AddEvent?eventName=" + newEvent.eventName + "&price=" + newEvent.price + "&eventLocation=" + newEvent.eventLocation + "&postTime=" + newEvent.postTime,
       params
     ).subscribe(data => {
       console.log(data);
@@ -31,10 +31,5 @@ export class MyService {
     )
       ;
   }
-//  addEvent(event: Event): any {
-//    console.log(event);
-//    const params = new HttpParams();
-//    return this.http.post(
-//      this.baseUrl + "api/event/GetEvent" + event.)
-//  }
+  
 }
