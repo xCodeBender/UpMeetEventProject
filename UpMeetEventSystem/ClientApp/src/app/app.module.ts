@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { NgAllComponent } from './ng-all/ng-all.component';
 import { NgFavoriteComponent } from './ng-favorite/ng-favorite.component';
 import { NgAddComponent } from './ng-add/ng-add.component';
+import { EventDetailComponent } from './event-details/event-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NgAddComponent } from './ng-add/ng-add.component';
     FetchDataComponent,
     NgAllComponent,
     NgFavoriteComponent,
-    NgAddComponent
+    NgAddComponent,
+    EventDetailsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,6 +37,7 @@ import { NgAddComponent } from './ng-add/ng-add.component';
       { path: 'NgAll', component: NgAllComponent },
       { path: 'NgFavorite', component: NgFavoriteComponent },
       { path: 'NgAdd', component: NgAddComponent },
+      { path: 'EventDetailsComponent', component: EventDetailsComponent },
     ])
   ],
   providers: [],
