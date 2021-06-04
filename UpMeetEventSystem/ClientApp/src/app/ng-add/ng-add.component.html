@@ -1,5 +1,5 @@
 <div style="border: 1px solid red">
-  <form #eventForm="ngForm" (ngSubmit) ="">
+  <form #eventForm="ngForm" (ngSubmit) ="addEvent(eventForm)">
     <input name="eventName" ngModel />
     <input name="price" type="number" ngModel />
     <input name="eventLocation" ngModel />

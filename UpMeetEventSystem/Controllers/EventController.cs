@@ -20,6 +20,27 @@ namespace UpMeetEventSystem.Controllers
             {
                 return context.Events.ToList();
             }
+
         }
+
+        [HttpPost("AddEvent")]
+        public Event AddEvent(string eventName, double? price, string eventLocation, DateTime postTime)
+        {
+            using (EventDBContext context = new EventDBContext())
+            {
+                Event newEvent = new Event();
+                newEvent.EventName = eventName;
+                newEvent.Price = price;
+                newEvent.EventLocation = eventLocation;
+                newEvent.PostTime = postTime;
+                context.Add(newEvent);
+                context.SaveChanges();
+                return newEvent;
+            }
+        }
+
+
+
+
     }
 }

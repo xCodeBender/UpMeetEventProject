@@ -27,5 +27,8 @@ export class NgAllComponent {
     )
   }
 
-
+  createEvent(newEvent: Event): void {
+    console.log(newEvent);
+    console.log(this.service.addEvent(newEvent));
+  }
 }
