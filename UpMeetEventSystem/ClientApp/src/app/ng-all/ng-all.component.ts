@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Event } from '../Event';
 import { MyService } from '../event.service';
 
+
 @Component({
     selector: 'app-ng-all',
     templateUrl: './ng-all.component.html',

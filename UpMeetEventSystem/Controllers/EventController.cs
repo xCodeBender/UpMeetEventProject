@@ -23,6 +23,7 @@ namespace UpMeetEventSystem.Controllers
 
         }
 
+        // api/event/AddEvent
         [HttpPost("AddEvent")]
         public Event AddEvent(string eventName, double? price, string eventLocation, DateTime postTime)
         {
@@ -40,6 +41,21 @@ namespace UpMeetEventSystem.Controllers
             }
         }
 
+        // api/event/id
+        [HttpGet("id")]
+        public Event GetEventByID(int id)
+        {
+            using (EventDBContext context = new EventDBContext())
+            {
+                Event newEvent = new Event();
+                newEvent = context.Events.ToList().Find(i => i.Id == id);
+                
+                return newEvent;
+
+            }
+        }
+
+        
 
 
 

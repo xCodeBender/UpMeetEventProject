@@ -11,6 +11,14 @@ export class MyService {
 
   }
 
+  event: Event = {
+    id: -1,
+    eventName: "",
+    price: 0,
+    eventLocation: "",
+    postTime: ""
+  };
+
   getAllEvents(): any {
     return this.http.get(this.baseUrl + "api/event/GetEvent");
   }
@@ -31,5 +39,14 @@ export class MyService {
     )
       ;
   }
-  
+
+  getEventFromId(id: number): any {
+    let result: Event = { id: -1, eventName: "", price: 0, eventLocation: "", postTime: "" };
+
+    return this.http.get(this.baseUrl + "api/event/id?id=" + id);
+    
+    
+
+  }
+
 }
