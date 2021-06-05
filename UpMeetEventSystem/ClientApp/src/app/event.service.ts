@@ -49,4 +49,16 @@ export class MyService {
 
   }
 
+  currentId: number = -1;
+
+  setId(newId: number): void {
+    this.currentId = newId;
+
+  }
+
+  getId(): number {
+    return this.currentId;
+  }
+
+  
 }

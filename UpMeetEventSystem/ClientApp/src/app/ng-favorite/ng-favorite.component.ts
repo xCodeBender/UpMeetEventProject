@@ -15,5 +15,7 @@ export class NgFavoriteComponent {
     /** NgFavorite ctor */
     constructor() {
 
-    }
+  }
+
+  
 }

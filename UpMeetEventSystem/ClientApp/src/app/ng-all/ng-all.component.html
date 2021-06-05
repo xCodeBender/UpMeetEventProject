@@ -2,7 +2,4 @@
 <app-ng-add (createdEvent)="createEvent($event)"> </app-ng-add>
 <p *ngFor=" let e of event"> {{ e.eventName }} 
 <a [routerLink]="['/event', e.id]">View Details</a> </p>
-<!--<p *ngFor="let e of event"> {{ e.price }} </p>
-<p *ngFor="let e of event"> {{ e.eventLocation }} </p>
-<p *ngFor="let e of event"> {{ e.postTime }} </p>-->
-<!--Comment-->
+

@@ -60,6 +60,8 @@ namespace UpMeetEventSystem
 
                 entity.ToTable("Favorite");
 
+                entity.Property(e => e.EventId).HasColumnName("eventID");
+
                 entity.Property(e => e.FirstName)
                     .HasMaxLength(250)
                     .HasColumnName("firstName");

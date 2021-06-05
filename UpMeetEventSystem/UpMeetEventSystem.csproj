@@ -34,11 +34,14 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\Event.ts" />
+    <None Remove="ClientApp\src\app\Favorite.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Remove="ClientApp\src\app\event-details\event-details.component.spec.ts" />
     <TypeScriptCompile Remove="ClientApp\src\app\event-details\event-details.component.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\set-id\set-id.component.spec.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\app\set-id\set-id.component.ts" />
   </ItemGroup>
 
   <ItemGroup>

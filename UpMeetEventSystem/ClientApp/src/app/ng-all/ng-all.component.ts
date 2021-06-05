@@ -32,4 +32,6 @@ export class NgAllComponent {
     console.log(newEvent);
     console.log(this.service.addEvent(newEvent));
   }
+
+  
 }

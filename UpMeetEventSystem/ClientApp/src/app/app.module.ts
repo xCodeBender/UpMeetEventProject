@@ -13,6 +13,7 @@ import { NgAllComponent } from './ng-all/ng-all.component';
 import { NgFavoriteComponent } from './ng-favorite/ng-favorite.component';
 import { NgAddComponent } from './ng-add/ng-add.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { SetIdComponent } from './set-id/set-id.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EventDetailsComponent } from './event-details/event-details.component';
     NgAllComponent,
     NgFavoriteComponent,
     NgAddComponent,
-    EventDetailsComponent
+    EventDetailsComponent,
+    SetIdComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -38,6 +40,7 @@ import { EventDetailsComponent } from './event-details/event-details.component';
       { path: 'NgFavorite', component: NgFavoriteComponent },
       { path: 'NgAdd', component: NgAddComponent },
       { path: 'event/:id', component: EventDetailsComponent },
+      { path: 'event/:set', component: SetIdComponent },
 
     ])
   ],

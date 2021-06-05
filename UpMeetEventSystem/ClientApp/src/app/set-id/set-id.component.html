@@ -1,0 +1,6 @@
+<h1> Current User: {{myId}}</h1>
+
+<form #loginForm="ngForm" (ngSubmit)="setId(loginForm)">
+  <input type="number" name="user" ngModel />
+  <button> Login</button>
+</form>
