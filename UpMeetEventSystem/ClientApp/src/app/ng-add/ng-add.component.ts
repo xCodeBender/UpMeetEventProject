@@ -27,4 +27,6 @@ export class NgAddComponent {
     console.log(newEvent);
     this.createdEvent.emit(newEvent);
   }
+
+  
 }

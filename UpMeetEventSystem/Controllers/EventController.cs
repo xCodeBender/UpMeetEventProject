@@ -55,8 +55,41 @@ namespace UpMeetEventSystem.Controllers
             }
         }
 
-        
+        // api/event/AddFavorite
+        [HttpPost("AddFavorite")]
+        public Favorite AddFavorite(int Id, int LoginId, string FirstName, int? EventId)
+        {
+            using (EventDBContext context = new EventDBContext())
+            {
+                Favorite newFav = new Favorite();
+                newFav.Id = Id;
+                newFav.LoginId = LoginId;
+                newFav.FirstName = FirstName;
+                newFav.EventId = EventId;
+                context.Add(newFav);
+                context.SaveChanges();
+                return newFav;
 
+            }
+        }
+
+        // api/event/DeleteFavorite
+        [HttpDelete("DeleteFavorite")]
+        public Favorite DeleteFavorite(int Id, int LoginId, string FirstName, int? EventId)
+        {
+            using (EventDBContext context = new EventDBContext())
+            {
+                Favorite newFav = new Favorite();
+                newFav.Id = Id;
+                newFav.LoginId = LoginId;
+                newFav.FirstName = FirstName;
+                newFav.EventId = EventId;
+                context.Remove(newFav);
+                context.SaveChanges();
+                return newFav;
+                // OR use Linq instead to delte favorite from list newFav = context.Favorites.ToList().Find(f => f.Id == id);
+            }
+        }
 
 
     }

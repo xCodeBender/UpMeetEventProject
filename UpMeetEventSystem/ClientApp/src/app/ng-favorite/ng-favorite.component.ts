@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { Event } from '../Event';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MyService } from '../event.service';
+import { Favorite } from '../Favorite';
 
 @Component({
     selector: 'app-ng-favorite',
@@ -10,12 +10,24 @@ import { MyService } from '../event.service';
 /** NgFavorite component*/
 export class NgFavoriteComponent {
 
-  @Input() event: Event = {id: -1, eventName: "", price: 0, eventLocation: "", postTime: ""}
+  //@Input() fav: Favorite = { id: -1, eventId: 0, firstName: "", loginId: 0 }
+  @Output() createdFav = new EventEmitter<Favorite>();
 
     /** NgFavorite ctor */
-    constructor() {
+  constructor(private service: MyService) {
 
   }
 
-  
+  addToFavorite(id: number) {
+    let newFavorite: Favorite = {
+      id: null,
+      eventId: id,
+      firstName: null,
+      loginId: this.service.getID()
+
+    }
+    this.service.addFavorite.emit(newFavorite);
+
+    /*return this.http.get(this.baseUrl + "api/event/AddFavorite=" + id);*/
+  }
 }

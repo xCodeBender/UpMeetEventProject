@@ -1,6 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Event } from './Event';
+import { Favorite } from './Favorite';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +20,14 @@ export class MyService {
     eventLocation: "",
     postTime: ""
   };
+
+  fav: Favorite = {
+    id: -1,
+    loginId: 0,
+    firstName: "",
+    eventId: 0
+
+  }
 
   getAllEvents(): any {
     return this.http.get(this.baseUrl + "api/event/GetEvent");
@@ -51,14 +61,24 @@ export class MyService {
 
   currentId: number = -1;
 
-  setId(newId: number): void {
+  setID(newId: number): void {
     this.currentId = newId;
 
   }
 
-  getId(): number {
+  getID(): number {
     return this.currentId;
   }
 
-  
+  addFavorite(id: number) {
+    let newFavorite: Favorite = {
+      id: null,
+      eventId: id,
+      firstName: null,
+      loginId: this.currentId
+
+    };
+    return newFavorite;
+
+  }
 }

@@ -70,9 +70,7 @@ namespace UpMeetEventSystem
                     .ValueGeneratedOnAdd()
                     .HasColumnName("id");
 
-                entity.Property(e => e.UserId)
-                    .HasMaxLength(250)
-                    .HasColumnName("userId");
+                entity.Property(e => e.LoginId).HasColumnName("loginId");
 
                 entity.HasOne(d => d.IdNavigation)
                     .WithMany()
