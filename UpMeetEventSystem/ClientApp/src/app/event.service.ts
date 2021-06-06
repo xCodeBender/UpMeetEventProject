@@ -79,6 +79,6 @@ export class MyService {
 
     };
     return newFavorite;
-
+   /* return this.http.post(this.baseUrl + "api/event/id?id=" + id); do we need to add the api link for adding favorites and do we need to do the same for the delete api?*/ 
   }
 }
