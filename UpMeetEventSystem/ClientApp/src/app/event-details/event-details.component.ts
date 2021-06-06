@@ -3,6 +3,7 @@ import { Event } from '../event';
 import { MyService } from '../event.service';
 /*import { RouterModule, Routes } from '@angular/router';*/
 import { ActivatedRoute } from '@angular/router';
+import { Favorite } from '../Favorite';
 
 @Component({
     selector: 'app-event-details',
@@ -37,6 +38,14 @@ export class EventDetailsComponent implements OnInit  {
       }
     );
   }
-  
 
+  addFavorite(id: number) {
+    this.myService.addFavorite(id);
+
+  }
+
+  removeFavorite(id: number) {
+    this.myService.removeFavorite(id);
+
+  }
 }

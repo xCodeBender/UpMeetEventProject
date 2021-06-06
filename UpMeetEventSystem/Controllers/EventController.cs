@@ -57,16 +57,15 @@ namespace UpMeetEventSystem.Controllers
 
         // api/event/AddFavorite
         [HttpPost("AddFavorite")]
-        public Favorite AddFavorite(int Id, int LoginId, string FirstName, int? EventId)
+        public Favorite AddFavorite( int LoginId, string FirstName, int? EventId)
         {
             using (EventDBContext context = new EventDBContext())
             {
                 Favorite newFav = new Favorite();
-                newFav.Id = Id;
                 newFav.LoginId = LoginId;
                 newFav.FirstName = FirstName;
                 newFav.EventId = EventId;
-                context.Add(newFav);
+                context.Favorites.Add(newFav);
                 context.SaveChanges();
                 return newFav;
 
@@ -75,20 +74,27 @@ namespace UpMeetEventSystem.Controllers
 
         // api/event/DeleteFavorite
         [HttpDelete("DeleteFavorite")]
-        public Favorite DeleteFavorite(int Id, int LoginId, string FirstName, int? EventId)
+        public Favorite DeleteFavorite(int LoginId, int EventId )
         {
             using (EventDBContext context = new EventDBContext())
             {
                 Favorite newFav = new Favorite();
-                newFav.Id = Id;
-                newFav.LoginId = LoginId;
-                newFav.FirstName = FirstName;
-                newFav.EventId = EventId;
+                newFav = context.Favorites.ToList().Find(f => f.LoginId == LoginId && f.EventId == EventId);
                 context.Remove(newFav);
                 context.SaveChanges();
                 return newFav;
-                // OR use Linq instead to delte favorite from list newFav = context.Favorites.ToList().Find(f => f.Id == id);
             }
+        }
+
+        // api/event/AllFavorites
+        [HttpGet("AllFavorites")]
+        public List<Favorite> GetFavoriteEvent()
+        {
+            using (EventDBContext context = new EventDBContext())
+            {
+                return context.Favorites.ToList();
+            }
+
         }
 
 

@@ -1,10 +1,10 @@
-<app-set-id (createdFav)="createEvent($event)"> </app-set-id>  <!--we want to grab the infor from set id ts. (createdEvent)="createEvent($event)"-->
-<div *ngFor=" let e of event">
-  <h1>{{event.eventName}}</h1>
-  <h2>{{event.price}}</h2>
-  <h2>{{event.eventLocation}}</h2>
-  <h3>{{event.postTime}}</h3>
+<div *ngFor="let e of favEvents">
+  <h1> {{ e.eventName}}</h1>
+  <!--<h2>{{e.price}}</h2>
+  <h2>{{e.eventLocation}}</h2>
+  <h3>{{e.postTime}}</h3>-->
+  
   <button (click)="addFavorite(e.id)"> Add to Favorites</button>
-  <button (click)="removeFavorite(e.id)"> Remove from Favorites</button> <!--do we need to write method in typescript or eventcontroller
+  <button (click)="removeFavorite(e.id)"> Remove from Favorites</button> 
 
-</div>-->
+</div>

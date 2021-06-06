@@ -56,27 +56,17 @@ namespace UpMeetEventSystem
 
             modelBuilder.Entity<Favorite>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("Favorite");
 
-                entity.Property(e => e.EventId).HasColumnName("eventID");
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.EventId).HasColumnName("eventId");
 
                 entity.Property(e => e.FirstName)
                     .HasMaxLength(250)
                     .HasColumnName("firstName");
 
-                entity.Property(e => e.Id)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("id");
-
                 entity.Property(e => e.LoginId).HasColumnName("loginId");
-
-                entity.HasOne(d => d.IdNavigation)
-                    .WithMany()
-                    .HasForeignKey(d => d.Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Favorite__id__25869641");
             });
 
             OnModelCreatingPartial(modelBuilder);

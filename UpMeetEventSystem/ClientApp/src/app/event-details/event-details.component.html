@@ -1,11 +1,10 @@
-<app-set-id (createdFavorite)="createEvent($event)"> </app-set-id>
-<app-ng-favorite (submitAddtoFavorite)="addToFavorite($event)"> </app-ng-favorite>
+
 <p> {{event.eventName}}</p>
 <p> {{ event.price }} </p>
 <p> {{ event.eventLocation }} </p>
 <p> {{ event.postTime }} </p>
 
 
-<button (click)="addEvent(e.id)"> Add to Favorites</button>
-<a [routerLink]="['/set-id', e.id]">Login</a>
-
+<button (click)="addFavorite(event.id)"> Add to Favorites</button>
+<button (click)="removeFavorite(event.id)"> Remove from Favorites</button>
+<!--<a [routerLink]="['/set-id', event.id]"></a>-->

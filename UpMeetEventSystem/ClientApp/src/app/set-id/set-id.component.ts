@@ -25,8 +25,10 @@ export class SetIdComponent {
 
   setId(form: NgForm): void {
     this.service.setID(form.form.value.user);
+    this.service.setName(form.form.value.FirstName);
     this.getId();
   }
+
 
  
   

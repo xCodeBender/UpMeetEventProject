@@ -33,7 +33,7 @@ import { SetIdComponent } from './set-id/set-id.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: SetIdComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'NgAll', component: NgAllComponent },
@@ -41,7 +41,6 @@ import { SetIdComponent } from './set-id/set-id.component';
       { path: 'NgAdd', component: NgAddComponent },
       { path: 'event/:id', component: EventDetailsComponent },
       { path: 'event/:set', component: SetIdComponent },
-
     ])
   ],
   providers: [],

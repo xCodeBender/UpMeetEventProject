@@ -33,6 +33,10 @@ export class MyService {
     return this.http.get(this.baseUrl + "api/event/GetEvent");
   }
 
+  getAllFavorites(): any {
+    return this.http.get(this.baseUrl + "api/event/AllFavorites");
+  }
+
   addEvent(newEvent: Event): any {
     console.log(newEvent);
     const params = new HttpParams();
@@ -54,8 +58,8 @@ export class MyService {
     let result: Event = { id: -1, eventName: "", price: 0, eventLocation: "", postTime: "" };
 
     return this.http.get(this.baseUrl + "api/event/id?id=" + id);
-    
-    
+
+
 
   }
 
@@ -74,11 +78,41 @@ export class MyService {
     let newFavorite: Favorite = {
       id: null,
       eventId: id,
-      firstName: null,
+      firstName: this.currentName,
       loginId: this.currentId
 
     };
-    return newFavorite;
-   /* return this.http.post(this.baseUrl + "api/event/id?id=" + id); do we need to add the api link for adding favorites and do we need to do the same for the delete api?*/ 
+    const params = new HttpParams();
+    return this.http.post(this.baseUrl + "api/event/AddFavorite?loginId=" + newFavorite.loginId + "&FirstName=" + newFavorite.firstName + "&eventId=" + newFavorite.eventId, params)
+      .subscribe(data => {
+        console.log(data);
+      },
+        error => {
+          console.log(error);
+        }
+      );
+      
   }
+
+  currentName: string = "";
+
+  setName(newName: string): void {
+    this.currentName = newName;
+
+  }
+
+  getName(): string {
+    return this.currentName;
+  }
+
+  removeFavorite(eventId: number) {
+    return this.http.delete(this.baseUrl + "api/event/DeleteFavorite?eventId=" + eventId + "&LoginId=" + this.currentId).subscribe(data => {
+      console.log(data);
+    },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
 }

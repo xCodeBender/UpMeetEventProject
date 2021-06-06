@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component} from '@angular/core';
 import { MyService } from '../event.service';
 import { Favorite } from '../Favorite';
+import { Event } from '../event';
 
 @Component({
     selector: 'app-ng-favorite',
@@ -11,23 +12,48 @@ import { Favorite } from '../Favorite';
 export class NgFavoriteComponent {
 
   //@Input() fav: Favorite = { id: -1, eventId: 0, firstName: "", loginId: 0 }
-  @Output() createdFav = new EventEmitter<Favorite>();
 
     /** NgFavorite ctor */
   constructor(private service: MyService) {
 
   }
 
-  addToFavorite(id: number) {
-    let newFavorite: Favorite = {
-      id: null,
-      eventId: id,
-      firstName: null,
-      loginId: this.service.getID()
+  ngOnInit() {
+    this.service.getAllEvents().subscribe(
+      (response: any) => {
+        this.allEvents = response;
+        console.log(this.allEvents);
 
-    }
-    this.service.addFavorite.emit(newFavorite);
+        this.service.getAllFavorites().subscribe(
+          (response: any) => {
+            this.favList = response;
+            console.log(this.favList);
 
-    /*return this.http.get(this.baseUrl + "api/event/AddFavorite=" + id);*/
+            this.favList.forEach((f: Favorite) => {
+              if (f.loginId == this.service.getID())
+              { this.favEvents.push(this.allEvents.find((e: Event) => e.id == f.eventId)); }
+            })
+            console.log(this.favEvents);
+          }
+        )
+      }
+
+    )
+    
+  }
+
+  favList: Favorite[] = [];
+  allEvents: Event[] = [];
+  favEvents: Event[] = [];
+
+
+  addFavorite(id: number) {
+    this.service.addFavorite(id);
+
+  }
+
+  removeFavorite(id: number) {
+    this.service.removeFavorite(id);
+
   }
 }
