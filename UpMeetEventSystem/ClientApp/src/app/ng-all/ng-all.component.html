@@ -1,5 +1,6 @@
 <!--<app-ng-favorite [event]="e" *ngFor=" let e of event"> </app-ng-favorite>-->
 <app-ng-add (createdEvent)="createEvent($event)"> </app-ng-add>
 <p *ngFor=" let e of event"> {{ e.eventName }} 
-<a [routerLink]="['/event', e.id]">View Details</a> </p>
+<a [routerLink]="['/event', e.id]">View Details</a>
+  </p>
 
