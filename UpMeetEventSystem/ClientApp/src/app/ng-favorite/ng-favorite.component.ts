@@ -54,6 +54,6 @@ export class NgFavoriteComponent {
 
   removeFavorite(id: number) {
     this.service.removeFavorite(id);
-    this.router.navigate(['NgFavorite']);
+    this.router.navigate([this.router.url]);
   }
 }
