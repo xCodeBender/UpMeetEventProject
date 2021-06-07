@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Event } from '../Event';
 
 @Component({
@@ -10,7 +11,7 @@ import { Event } from '../Event';
 /** NgAdd component*/
 export class NgAddComponent {
     /** NgAdd ctor */
-    constructor() {
+  constructor(public router: Router) {
 
     }
 
@@ -26,7 +27,9 @@ export class NgAddComponent {
     }
     console.log(newEvent);
     this.createdEvent.emit(newEvent);
+    this.router.navigate(['NgAll']);
   }
 
   
+
 }

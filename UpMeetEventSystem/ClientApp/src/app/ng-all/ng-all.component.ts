@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Event } from '../Event';
 import { MyService } from '../event.service';
 
@@ -14,7 +15,7 @@ export class NgAllComponent {
 
   event: Event[] = [];
 
-  constructor(private service: MyService) {
+  constructor(private service: MyService, public router: Router) {
 
   }
 
@@ -31,7 +32,9 @@ export class NgAllComponent {
   createEvent(newEvent: Event): void {
     console.log(newEvent);
     console.log(this.service.addEvent(newEvent));
+    this.router.navigate(['NgAll']);
   }
 
+ 
   
 }

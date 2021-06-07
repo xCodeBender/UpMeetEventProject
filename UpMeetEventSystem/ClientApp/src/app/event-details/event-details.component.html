@@ -1,8 +1,8 @@
 
-<p> {{event.eventName}}</p>
-<p> {{ event.price }} </p>
-<p> {{ event.eventLocation }} </p>
-<p> {{ event.postTime }} </p>
+<h3> Event Name: {{event.eventName}}</h3>
+<p> Event Price: ${{ event.price }} </p>
+<p> Event Location: {{ event.eventLocation }} </p>
+<p> Event Date & Time: {{ event.postTime }} </p>
 
 
 <button (click)="addFavorite(event.id)"> Add to Favorites</button>

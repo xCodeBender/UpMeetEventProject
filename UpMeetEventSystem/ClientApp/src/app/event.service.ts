@@ -13,6 +13,11 @@ export class MyService {
 
   }
 
+  refreshPage() {
+    window.location.reload();
+  }
+
+
   event: Event = {
     id: -1,
     eventName: "",

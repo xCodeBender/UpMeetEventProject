@@ -1,9 +1,11 @@
 <div >
+  <h2>Submit More Events Below! </h2>
+
   <form #eventForm="ngForm" (ngSubmit) ="addEvent(eventForm)">
-    <input name="eventName" ngModel />
-    <input name="price" type="number" ngModel />
-    <input name="eventLocation" ngModel />
-    <input name="postTime" ngModel />
+    <input name="eventName" placeholder="Enter event name" ngModel />
+    <input name="price" type="number" placeholder="Enter event price" ngModel />
+    <input name="eventLocation" placeholder="Enter event location" ngModel />
+    <input type="datetime" name="postTime" placeholder="YYYY/MM/DD HH:MM:SS" ngModel />
     <button>Submit</button>
   </form>
   </div>

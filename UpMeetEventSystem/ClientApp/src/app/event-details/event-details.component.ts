@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Event } from '../event';
 import { MyService } from '../event.service';
 /*import { RouterModule, Routes } from '@angular/router';*/
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Favorite } from '../Favorite';
 
 @Component({
@@ -21,7 +21,7 @@ export class EventDetailsComponent implements OnInit  {
     postTime:""
   };
     /** eventDetails ctor */
-  constructor(private myService: MyService, private route: ActivatedRoute)
+  constructor(private myService: MyService, private route: ActivatedRoute, public router: Router)
   {
 
   }
@@ -41,6 +41,7 @@ export class EventDetailsComponent implements OnInit  {
 
   addFavorite(id: number) {
     this.myService.addFavorite(id);
+    this.router.navigate(['NgAll']);
 
   }
 
@@ -48,4 +49,6 @@ export class EventDetailsComponent implements OnInit  {
     this.myService.removeFavorite(id);
 
   }
+
+
 }

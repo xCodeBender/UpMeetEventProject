@@ -1,9 +1,11 @@
+<div >
+  <h1>Welcome to UpMeet Event </h1>
+  <h3> Current User: {{myId}}</h3>
 
-<h1> Current User: {{myId}}</h1>
-
-<form #loginForm="ngForm" (ngSubmit)="setId(loginForm)">
-  <input type="number" name="user" ngModel />
-  <input name="FirstName" ngModel />
-  <button> Login</button>
-</form>
+  <form #loginForm="ngForm" (ngSubmit)="setId(loginForm)">
+    <input type="number" name="user" placeholder="Enter your login Id" required ngModel />
+    <input name="FirstName" placeholder="Enter your first name" required ngModel />
+    <button  onclick="getAllEvents()"> Login</button>
+  </form>
+</div>
 
