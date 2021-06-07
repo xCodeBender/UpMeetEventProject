@@ -15,6 +15,7 @@ import { NgAddComponent } from './ng-add/ng-add.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { SetIdComponent } from './set-id/set-id.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
