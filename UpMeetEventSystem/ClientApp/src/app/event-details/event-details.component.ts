@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from '../event';
 import { MyService } from '../event.service';
-/*import { RouterModule, Routes } from '@angular/router';*/
 import { ActivatedRoute, Router } from '@angular/router';
 import { Favorite } from '../Favorite';
 
@@ -47,7 +46,7 @@ export class EventDetailsComponent implements OnInit  {
 
   removeFavorite(id: number) {
     this.myService.removeFavorite(id);
-
+    this.router.navigate(['NgAll']);
   }
 
 

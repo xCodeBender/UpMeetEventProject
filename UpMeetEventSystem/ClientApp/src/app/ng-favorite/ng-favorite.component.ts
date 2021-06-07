@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { MyService } from '../event.service';
 import { Favorite } from '../Favorite';
 import { Event } from '../event';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-ng-favorite',
@@ -11,10 +12,9 @@ import { Event } from '../event';
 /** NgFavorite component*/
 export class NgFavoriteComponent {
 
-  //@Input() fav: Favorite = { id: -1, eventId: 0, firstName: "", loginId: 0 }
 
     /** NgFavorite ctor */
-  constructor(private service: MyService) {
+  constructor(private service: MyService, public router: Router ) {
 
   }
 
@@ -54,6 +54,6 @@ export class NgFavoriteComponent {
 
   removeFavorite(id: number) {
     this.service.removeFavorite(id);
-
+    this.router.navigate(['NgFavorite']);
   }
 }
