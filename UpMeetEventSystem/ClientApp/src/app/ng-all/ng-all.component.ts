@@ -20,6 +20,10 @@ export class NgAllComponent {
   }
 
   ngOnInit() {
+    this.getEvents();
+  }
+  /*this.event.push(newEvent);//adding manually*/
+  getEvents() {
     this.service.getAllEvents().subscribe(
       (response: any) => {
         this.event = response;
@@ -31,7 +35,15 @@ export class NgAllComponent {
 
   createEvent(newEvent: Event): void {
     console.log(newEvent);
-    console.log(this.service.addEvent(newEvent));
+    this.service.addEvent(newEvent).subscribe(data => {
+      console.log(data);
+      this.getEvents();
+    },
+      error => {
+        console.log(error);
+      }
+    );
+    
     this.router.navigate(['NgAll']);
   }
 

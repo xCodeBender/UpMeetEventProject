@@ -49,12 +49,6 @@ export class MyService {
     return this.http.post(
       this.baseUrl + "api/event/AddEvent?eventName=" + newEvent.eventName + "&price=" + newEvent.price + "&eventLocation=" + newEvent.eventLocation + "&postTime=" + newEvent.postTime,
       params
-    ).subscribe(data => {
-      console.log(data);
-    },
-      error => {
-        console.log(error);
-      }
     )
       ;
   }

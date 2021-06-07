@@ -27,6 +27,7 @@ export class NgAddComponent {
     }
     console.log(newEvent);
     this.createdEvent.emit(newEvent);
+    form.resetForm();
     this.router.navigate(['NgAll']);
   }
 
