@@ -2,8 +2,8 @@
 <div>
 
   <p *ngFor=" let e of event">
-    {{ e.eventName }}
     <a [routerLink]="['/event', e.id]"> View Details</a>
+    {{ e.eventName }}
   </p>
 </div>
 <app-ng-add (createdEvent)="createEvent($event)"> </app-ng-add>
